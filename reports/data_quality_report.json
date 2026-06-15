@@ -1,0 +1,38 @@
+{
+  "attack_type_distribution": {
+    "Backdoor": 9866,
+    "DDoS_HTTP": 10559,
+    "DDoS_ICMP": 13096,
+    "DDoS_TCP": 10247,
+    "DDoS_UDP": 14498,
+    "Fingerprinting": 853,
+    "MITM": 358,
+    "Normal": 24152,
+    "Password": 9978,
+    "Port_Scanning": 8921,
+    "Ransomware": 9690,
+    "SQL_injection": 10286,
+    "Uploading": 10237,
+    "Vulnerability_scanner": 10062,
+    "XSS": 9550
+  },
+  "dropped_columns": [
+    "frame.time",
+    "ip.src_host",
+    "ip.dst_host",
+    "arp.src.proto_ipv4",
+    "arp.dst.proto_ipv4",
+    "http.file_data",
+    "http.request.full_uri",
+    "http.request.uri.query",
+    "http.referer",
+    "tcp.payload",
+    "mqtt.msg"
+  ],
+  "final_columns": 52,
+  "final_rows": 152353,
+  "initial_columns": 63,
+  "initial_rows": 157800,
+  "missing_values_after_cleaning": 0,
+  "removed_duplicates": 5447
+}

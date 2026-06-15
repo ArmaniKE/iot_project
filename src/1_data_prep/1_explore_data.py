@@ -1,27 +1,18 @@
-import os
-import pandas as pd
+import json
+import sys
+from pathlib import Path
 
-# get project root directory
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-DATA_PATH = os.path.join(BASE_DIR, "data", "ML-EdgeIIoT-dataset.csv")
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+
+from iot_ids.preprocessing import explore_raw_dataset
+
 
 def main():
-    if not os.path.exists(DATA_PATH):
-        print(f"Error: file not found at {DATA_PATH}")
-        return
+    print("Exploring raw Edge-IIoTset dataset...")
+    summary = explore_raw_dataset()
+    print(json.dumps(summary, indent=2, default=str))
 
-    print("Loading raw dataset for exploration...")
-    df = pd.read_csv(DATA_PATH, low_memory=False)
-    
-    print("\nDataset Shape:")
-    print(f"Rows: {df.shape[0]}, Columns: {df.shape[1]}")
-    
-    print("\nTarget Variable Distribution (Attack_type):")
-    print(df['Attack_type'].value_counts())
-    
-    categorical_columns = df.select_dtypes(include=['object']).columns.tolist()
-    print(f"\nDetected Categorical Columns ({len(categorical_columns)}):")
-    print(categorical_columns)
 
 if __name__ == "__main__":
     main()
+
