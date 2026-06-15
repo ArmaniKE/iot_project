@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from .evaluation import plot_confusion_matrix, plot_feature_importance
+from .evaluation import plot_all_evaluation_figures
 from .modeling import train_and_evaluate_models
 from .preprocessing import clean_dataset, explore_raw_dataset, transform_dataset, verify_clean_dataset
 
@@ -11,8 +11,7 @@ def run_full_pipeline() -> dict:
     verification = verify_clean_dataset()
     transformation = transform_dataset()
     training = train_and_evaluate_models()
-    confusion_matrix_path = plot_confusion_matrix()
-    feature_importance_path = plot_feature_importance()
+    plots = plot_all_evaluation_figures()
 
     return {
         "exploration": exploration,
@@ -20,9 +19,5 @@ def run_full_pipeline() -> dict:
         "verification": verification,
         "transformation": transformation,
         "training": training,
-        "plots": {
-            "confusion_matrix": confusion_matrix_path,
-            "feature_importance": feature_importance_path,
-        },
+        "plots": plots,
     }
-

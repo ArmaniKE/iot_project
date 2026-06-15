@@ -5,7 +5,7 @@ from pathlib import Path
 
 sys.path.append(str(Path(__file__).resolve().parent))
 
-from iot_ids.evaluation import plot_confusion_matrix, plot_feature_importance
+from iot_ids.evaluation import plot_all_evaluation_figures
 from iot_ids.modeling import train_and_evaluate_models
 from iot_ids.pipeline import run_full_pipeline
 from iot_ids.preprocessing import clean_dataset, explore_raw_dataset, transform_dataset, verify_clean_dataset
@@ -33,10 +33,7 @@ def main() -> None:
     elif args.step == "train":
         result = train_and_evaluate_models()
     elif args.step == "plots":
-        result = {
-            "confusion_matrix": plot_confusion_matrix(),
-            "feature_importance": plot_feature_importance(),
-        }
+        result = plot_all_evaluation_figures()
     else:
         result = run_full_pipeline()
 

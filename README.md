@@ -45,6 +45,12 @@ models/
 output/
   confusion_matrix.png
   feature_importance.png
+  class_distribution.png
+  model_comparison.png
+  per_class_f1.png
+
+app/
+  streamlit_app.py             Visual IDS dashboard
 
 reports/
   classification_report.csv
@@ -121,6 +127,16 @@ python src/run_pipeline.py train
 python src/run_pipeline.py plots
 ```
 
+## Run The Dashboard
+
+After the pipeline creates the model, reports, and plots, launch the visual IDS dashboard:
+
+```bash
+streamlit run app/streamlit_app.py
+```
+
+The dashboard is the final product of the project. It shows the project goal, data quality summary, class distribution, model comparison, confusion matrix, feature importance, per-class F1 score, classification report, and a CSV upload area for trying predictions on traffic rows.
+
 The original numbered scripts also work:
 
 ```bash
@@ -154,6 +170,9 @@ The project evaluates models with:
 - Per-class classification report
 - Confusion matrix
 - Feature importance
+- Class distribution
+- Model comparison chart
+- Per-class F1 score chart
 
 Macro F1-score is used for model selection because the dataset is imbalanced and minority attack classes such as `MITM` and `Fingerprinting` should matter, not only the largest classes.
 

@@ -23,6 +23,9 @@ class ProjectPaths:
     data_quality_json: Path = BASE_DIR / "reports" / "data_quality_report.json"
     confusion_matrix_png: Path = BASE_DIR / "output" / "confusion_matrix.png"
     feature_importance_png: Path = BASE_DIR / "output" / "feature_importance.png"
+    class_distribution_png: Path = BASE_DIR / "output" / "class_distribution.png"
+    model_comparison_png: Path = BASE_DIR / "output" / "model_comparison.png"
+    per_class_f1_png: Path = BASE_DIR / "output" / "per_class_f1.png"
 
 
 PATHS = ProjectPaths()
@@ -48,4 +51,3 @@ LEAKAGE_COLUMNS = [
     "tcp.payload",
     "mqtt.msg",
 ]
-
